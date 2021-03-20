@@ -19,7 +19,7 @@
   (package-install 'use-package))
 
 ;; Stuff from Zamansky
-(org-babel-load-file (expand-file-name "~/.emacs.d/myinit.org"))
+(org-babel-load-file (expand-file-name "~/.dotfiles/emacs/myinit.org"))
 ;; End of Zamansky
 
 
