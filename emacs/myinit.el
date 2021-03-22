@@ -1,17 +1,22 @@
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(setq inhibit-splash-screen t)
+(tool-bar-mode -1)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
   ;; Line numbers? Yes plz
-  (when (version<= "26.0.50" emacs-version )
-    (global-display-line-numbers-mode))
-
-  ;; Font size of all buffers
-;;  (set-frame-font "Menlo 18" nil t)
-;;
-;;  ;; Set the minibuffer size to be smaller
-;;  (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup)
-;;  (defun my-minibuffer-setup ()
-;;         (set (make-local-variable 'face-remapping-alist)
-;;              '((default :height 0.7))))
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
 
 (use-package try
   :ensure t)
@@ -163,6 +168,20 @@
     (format-time-string "%z")))
     )
   )
+
+;; I want capture org files to be in same directory as buffer from which template was called
+  ;;(setq org-default-notes-file (concat default-directory "meetings.org"))
+
+;; set keybindg C-c c
+(global-set-key (kbd "C-c c") 'org-capture)
+
+;; https://stackoverflow.com/questions/64050011/getting-current-buffer-directory-from-within-org-capture
+
+  (setq org-capture-templates		
+        '(("m" "Meeting" entry
+           (file+headline
+            (concat (file-name-directory (org-capture-get :original-file)) "meetings.org")
+            "Meeting Headline") "* Meeting Title: %?")))
 
 (use-package scala-mode
     :interpreter

@@ -245,12 +245,23 @@ http://ergoemacs.org/emacs/elisp_datetime.html
 Following along with Prot for this:
 [[https://www.youtube.com/watch?v=qCdScs4YO8k][Emacs: Introduction to ORG-CAPTURE (YouTube)]]
 #+BEGIN_SRC emacs-lisp
-  (setq org-capture-templates
-        '(("m" "Meeting" entry
-           (file+headline "meetings.org" "Meeting Headline")
-           "* Meeting Title: %?")
-          ))
+    ;; I want capture org files to be in same directory as buffer from which template was called
+    ;;(setq org-default-notes-file (concat default-directory "meetings.org"))
+
+  ;; set keybindg C-c c
+  (global-set-key (kbd "C-c c") 'org-capture)
+
+  ;; https://stackoverflow.com/questions/64050011/getting-current-buffer-directory-from-within-org-capture
+
+    (setq org-capture-templates		
+          `(("m" "Meeting" entry
+             (file+headline 
+             ,(concat (file-name-directory (org-capture-get :original-file)) "meetings.org")
+              "Meeting Headline") "* Meeting Title: %?")))
 #+END_SRC
+
+#+RESULTS:
+| m | Meeting | entry | (file+headline (, (concat (file-name-directory (org-capture-get :original-file)) meetings.org)) Meeting Headline) | * Meeting Title: %? |
 
 ** Babel & Literate Programming
 Babel
