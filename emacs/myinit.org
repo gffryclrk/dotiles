@@ -241,6 +241,12 @@ http://ergoemacs.org/emacs/elisp_datetime.html
     )
 #+END_SRC
 * Org mode things
+** Timestamp
+Below sourced from [[https://emacs.stackexchange.com/a/60590][StackOverflow]]
+#+BEGIN_SRC emacs-lisp
+(setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M%z>"))
+#+END_SRC
+
 ** Capture templates
 Following along with Prot for this:
 [[https://www.youtube.com/watch?v=qCdScs4YO8k][Emacs: Introduction to ORG-CAPTURE (YouTube)]]
@@ -252,14 +258,16 @@ Following along with Prot for this:
   (global-set-key (kbd "C-c c") 'org-capture)
 
   ;; https://stackoverflow.com/questions/64050011/getting-current-buffer-directory-from-within-org-capture
-
+  ;; https://emacs.stackexchange.com/questions/38757/cannot-use-concat-within-org-capture-template
     (setq org-capture-templates		
           `(("m" "Meeting" entry
              (file+headline 
              ,(concat (file-name-directory (or (org-capture-get :original-file t) (org-capture-get :original-file))) "meetings.org")
-              "Meeting Headline") "* Meeting Title: %?")))
+              "Meeting Headline") "* %^{Meeting Title:}\nSCHEDULED: %^U\n** Agenda\n** Attendees\n** Minutes\n%?\n** Action Items\n")))
 #+END_SRC
 
+#+RESULTS:
+| m | Meeting | entry | (file+headline /Users/geclark/.dotfiles/emacs/meetings.org Meeting Headline) | * %^{Meeting Title:} |
 ** Babel & Literate Programming
 Babel
 #+BEGIN_SRC emacs-lisp
