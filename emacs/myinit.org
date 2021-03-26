@@ -251,8 +251,8 @@ Below sourced from [[https://emacs.stackexchange.com/a/60590][StackOverflow]]
 Following along with Prot for this:
 [[https://www.youtube.com/watch?v=qCdScs4YO8k][Emacs: Introduction to ORG-CAPTURE (YouTube)]]
 #+BEGIN_SRC emacs-lisp
-    ;; I want capture org files to be in same directory as buffer from which template was called
-    ;;(setq org-default-notes-file (concat default-directory "meetings.org"))
+  ;; I want capture org files to be in same directory as buffer from which template was called
+  ;;(setq org-default-notes-file (concat default-directory "meetings.org"))
 
   ;; set keybindg C-c c
   (global-set-key (kbd "C-c c") 'org-capture)
@@ -262,17 +262,20 @@ Following along with Prot for this:
   (setq org-capture-templates		
         '(("m" "Meeting" entry
            (function 
-            (lambda ()
-              (find-file
-               (concat (file-name-directory (or (org-capture-get :original-file t) (org-capture-get :original-file))) "meetings.org")
-               )
-              (move-end-of-line)
-              (newline)
-           "* %^{Meeting Title:}\nSCHEDULED: %^U\n** Agenda\n** Attendees\n** Minutes\n%?\n** Action Items\n")))))
+             (lambda ()
+                (find-file
+                 (concat (file-name-directory (or (org-capture-get :original-file t) (org-capture-get :original-file))) "meetings.org"))
+                (end-of-buffer)
+                ;; (insert "* %^{Meeting Title:}\nSCHEDULED: %^U\n** Agenda\n** Attendees\n** Minutes\n%?\n** Action Items\n")
+             ) "* %^{Meeting Title:}\nSCHEDULED: %^U\n** Agenda\n** Attendees\n** Minutes\n%?\n** Action Items\n"
+            )
+           )
+          )
+        )
 #+END_SRC
 
 #+RESULTS:
-| m | Meeting | entry | (function (lambda nil (find-file (concat (file-name-directory (or (org-capture-get :original-file t) (org-capture-get :original-file))) meetings.org)) (move-end-of-line) (newline)) * %^{Meeting Title:} |
+| m | Meeting | entry | (function (lambda nil (find-file (concat (file-name-directory (or (org-capture-get :original-file t) (org-capture-get :original-file))) meetings.org)) (end-of-buffer) (insert * %^{Meeting Title:} |
 ** Babel & Literate Programming
 Babel
 #+BEGIN_SRC emacs-lisp
