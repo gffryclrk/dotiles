@@ -171,8 +171,7 @@
 
 (setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M%z>"))
 
-;; I want capture org files to be in same directory as buffer from which template was called
-  ;;(setq org-default-notes-file (concat default-directory "meetings.org"))
+;;(setq org-default-notes-file (concat default-directory "meetings.org"))
 
 ;; set keybindg C-c c
 (global-set-key (kbd "C-c c") 'org-capture)
@@ -180,15 +179,22 @@
 ;; https://stackoverflow.com/questions/64050011/getting-current-buffer-directory-from-within-org-capture
 ;; https://emacs.stackexchange.com/questions/38757/cannot-use-concat-within-org-capture-template
 (setq org-capture-templates		
-      '(("m" "Meeting" entry
+      '(("m" "Meeting")
+        ("m1" "Meeting to org directory" entry
+         (file+headline "meetings.org" "Meetings")
+         "* %^{Meeting Title:}\nSCHEDULED: %^U\n** Agenda\n** Attendees\n** Minutes\n%?\n** Action Items\n")
+        ("m2" "Meeting to this directory" entry
          (function 
           (lambda ()
             (find-file
-             (concat (file-name-directory (or (org-capture-get :original-file t) (org-capture-get :original-file))) "meetings.org")
-             )
-            (move-end-of-line)
-            (newline)
-         "* %^{Meeting Title:}\nSCHEDULED: %^U\n** Agenda\n** Attendees\n** Minutes\n%?\n** Action Items\n")))))
+             (concat (file-name-directory (or (org-capture-get :original-file t) (org-capture-get :original-file))) "meetings.org"))
+            ;; (end-of-buffer)
+            ) 
+          )
+         "* %^{Meeting Title:}\nSCHEDULED: %^U\n** Agenda\n** Attendees\n** Minutes\n%?\n** Action Items\n"
+         )
+        )
+      )
 
 (use-package scala-mode
     :interpreter

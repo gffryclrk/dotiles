@@ -1,0 +1,82 @@
+* Meeting Headline
+hi
+** Input Title from Prompt
+ SCHEDULED: <2021-03-23 Tue> 
+** Testing 1
+SCHEDULED: <2021-03-23 Tue 09:52> 
+** Title
+SCHEDULED: [2021-03-23 Tue 09:54] 
+** T1
+SCHEDULED: [2021-03-23 Tue 09:58 EDT] 
+** T2
+SCHEDULED: [2021-03-23 Tue 09:59 -0400] 
+** T1
+SCHEDULED: [2021-03-23 Tue 10:01-0400]
+**Agenda
+**Attendees
+**Minutes
+?%
+**Action Items
+** Test3
+SCHEDULED: [2021-03-23 Tue 10:02-0400]
+*** Agenda
+*** Attendees
+*** Minutes
+- P1 P2 P3
+*** Action Items
+** Claims Defect Daily Triage
+SCHEDULED: [2019-04-24 Wed 12:00-0400]
+*** Agenda
+*** Attendees
+*** Minutes
+- ACER-10579
+  - Jose to send updated query, reading from CES_DIT_TMP, to DBA for update & refresh
+  - Geoffrey dependent on Update
+*** Action Items
+* %^{Meeting Title:}
+SCHEDULED: %^U
+** Agenda
+** Attendees
+** Minutes
+%?
+** Action Items
+* %^{Meeting Title:}
+SCHEDULED: %^U
+** Agenda
+** Attendees
+** Minutes
+%?
+** Action Items
+* %^{Meeting Title:}
+SCHEDULED: %^U
+** Agenda
+** Attendees
+** Minutes
+%?
+** Action Items
+* Hi
+[[file:~/.dotfiles/emacs/myinit.org::*Capture%20templates][Capture templates]]
+* 
+  [[file:~/.dotfiles/emacs/myinit.org::*Capture%20templates][Capture templates]]
+* w Function
+SCHEDULED: [2021-03-27 Sat 09:16-0400]
+** Agenda
+** Attendees
+** Minutes
+Oh hot dang
+** Action Items
+* Fun3
+SCHEDULED: [2021-03-27 Sat 09:24-0400]
+** Agenda
+** Attendees
+** Minutes
+Hello I am capturing the minutes
+** Action Items
+* Test2
+SCHEDULED: [2021-03-30 Tue 10:53-0400]
+** Agenda
+** Attendees
+** Minutes
+Hello I'm writing
+
+** Action Items
