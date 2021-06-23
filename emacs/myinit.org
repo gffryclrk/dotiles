@@ -426,6 +426,8 @@ copy/pasty from https://code.orgmode.org/bzg/org-mode/commit/90986a8e2fe881105cc
 
   ;; Hopefully prompt for GPG key passphrase in minibuffer, not popup
   (setenv "INSIDE_EMACS" (format "%s,comint" emacs-version))
+  (setf epa-pinentry-mode 'loopback)
+
   (pinentry-start)
 
   ;; Decrypt GPG files in buffer
@@ -444,7 +446,7 @@ copy/pasty from https://code.orgmode.org/bzg/org-mode/commit/90986a8e2fe881105cc
     ;; The minor mode bindings.
     nil
     (if (symbol-value auto-encryption-armored-mode)
-	(set (make-local-variable 'epa-armor) t)
+        (set (make-local-variable 'epa-armor) t)
       (kill-local-variable 'epa-armor))
     )
 
