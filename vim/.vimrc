@@ -3,8 +3,12 @@ colors zenburn
 set nu
 set expandtab
 set tabstop=4
+set shiftwidth=4
+
 syntax on
+filetype plugin indent on
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType jav setlocal ts=4 sts=4 sw=4 expandtab
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

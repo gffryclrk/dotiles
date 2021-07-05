@@ -250,7 +250,7 @@ Following along with Prot for this:
         '(("m" "Meeting")
           ("m1" "Meeting to org directory" entry
            (file+headline "~/Documents/org/meetings.org" "Meetings")
-           "* %^{Meeting Title:}\nSCHEDULED: %^U\n** Agenda\n** Attendees\n** Minutes\n%?\n** Action Items\n")
+           "** %^{Meeting Title:} %U\nSCHEDULED: %^U\n*** Attendees\n*** Minutes\n%?\n*** Action Items\n")
           ("m2" "Meeting to this directory" entry
            (function 
             (lambda ()
@@ -265,9 +265,6 @@ Following along with Prot for this:
         )
 #+END_SRC
 
-#+RESULTS:
-| m  | Meeting                  |       |                                                       |                      |
-| m1 | Meeting to org directory | entry | (file+headline ~/Documents/org/meetings.org Meetings) | * %^{Meeting Title:} |
 ** Babel & Literate Programming
 Babel
 #+BEGIN_SRC emacs-lisp

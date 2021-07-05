@@ -21,12 +21,6 @@
 (use-package try
   :ensure t)
 
-(add-to-list 'load-path "/Users/g.clark/.dotfiles/emacs/which-key.el")
-
-(use-package which-key
-  :ensure t
-  :config (which-key-mode))
-
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
@@ -178,7 +172,7 @@
       '(("m" "Meeting")
         ("m1" "Meeting to org directory" entry
          (file+headline "~/Documents/org/meetings.org" "Meetings")
-         "* %^{Meeting Title:}\nSCHEDULED: %^U\n** Agenda\n** Attendees\n** Minutes\n%?\n** Action Items\n")
+         "** %^{Meeting Title:} %U\nSCHEDULED: %^U\n*** Agenda\n*** Attendees\n*** Minutes\n%?\n*** Action Items\n")
         ("m2" "Meeting to this directory" entry
          (function 
           (lambda ()
