@@ -172,7 +172,7 @@
       '(("m" "Meeting")
         ("m1" "Meeting to org directory" entry
          (file+headline "~/Documents/org/meetings.org" "Meetings")
-         "** %^{Meeting Title:} %U\nSCHEDULED: %^U\n*** Agenda\n*** Attendees\n*** Minutes\n%?\n*** Action Items\n")
+         "** %^{Meeting Title:} %U\nSCHEDULED: %^U\n*** Attendees\n*** Minutes\n%?\n*** Action Items\n")
         ("m2" "Meeting to this directory" entry
          (function 
           (lambda ()
@@ -320,6 +320,7 @@ supported in Scala."
 
 (setq save-interprogram-paste-before-kill t)
 
+(setq evil-want-C-u-scroll t)
 (use-package evil)
 (require 'evil)
 (evil-mode 0)

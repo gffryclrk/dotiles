@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
         Plug 'christoomey/vim-tmux-navigator'
         Plug 'preservim/nerdtree'
         Plug 'tpope/vim-abolish'
+        Plug 'hashivim/vim-terraform'
         " Initialize plugin system
 call plug#end()
 
