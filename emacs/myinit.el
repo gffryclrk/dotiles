@@ -17,7 +17,8 @@
 
 (use-package org-cliplink
   :ensure t
-)
+  )
+(global-set-key (kbd "C-x p i") 'org-cliplink)
 
 (setq inhibit-splash-screen t)
 (tool-bar-mode -1)
@@ -59,6 +60,11 @@
     (ac-config-default)
     (global-auto-complete-mode t)
     ))
+
+;; (use-package org-ac
+;;   :ensure t
+;;   :init
+;;   )
 
 ;; projectile
 (use-package projectile

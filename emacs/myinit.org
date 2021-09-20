@@ -23,10 +23,12 @@
 #+END_SRC
 * Cliplink
 #+begin_src emacs-lisp
-  (use-package org-cliplink
-  :ensure t
-)
+    (use-package org-cliplink
+    :ensure t
+    )
+  (global-set-key (kbd "C-x p i") 'org-cliplink)
 #+end_src
+
 * Interface tweaks
 #+BEGIN_SRC emacs-lisp 
   (setq inhibit-splash-screen t)
@@ -92,10 +94,10 @@ Issues with which-key with Emacs 27.2 running on macOS Catalina
       (global-auto-complete-mode t)
       ))
 
-  (use-package org-ac
-    :ensure t
-    :init
-    )
+  ;; (use-package org-ac
+  ;;   :ensure t
+  ;;   :init
+  ;;   )
 #+end_src
 
 * Projectile
@@ -222,8 +224,6 @@ Ace window is that handy guy that gives you numbers to choose from when moving a
       (global-set-key [remap other-window] 'ace-window)
       ))
 #+END_SRC
-
-#+RESULTS:
 * Custom functions
 Printer for time with timezone
 http://ergoemacs.org/emacs/elisp_datetime.html
@@ -467,4 +467,13 @@ copy/pasty from https://code.orgmode.org/bzg/org-mode/commit/90986a8e2fe881105cc
   (add-to-list 'auto-mode-alist '("\\.asc$" . auto-encryption-armored-mode))
 
 #+END_SRC
+* package cl is deprecated
+https://github.com/hlissner/doom-emacs/issues/3372
+#+begin_src emacs-lisp
+  (require 'loadhist)
+  (file-dependents (feature-file 'cl))
+#+end_src
+
+#+RESULTS:
+| /Users/g.clark/.emacs.d/elpa/ace-jump-mode-20140616.815/ace-jump-mode.elc |
 
